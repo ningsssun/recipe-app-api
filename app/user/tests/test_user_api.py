@@ -128,8 +128,9 @@ class PrivateUserApiTests(TestCase):
 
     def test_update_user_profile(self):
         """Test updating the user profile for the authenticated user"""
+        # payload - data you want to send in the body of your HTTP request
         payload = {'name': 'Updated name', 'password': 'newpassword123'}
-
+        # res(response) - variable that stores the response object returned by the Django test when making the HTTP request
         res = self.client.patch(ME_URL, payload)
 
         self.user.refresh_from_db()
